@@ -18,6 +18,12 @@ yarn add @nicolastoulemont/utilities
 
 #### Colors
 
+- randomHex()
+
+```typescript
+function randomHex(): string;
+```
+
 - isHex()
 
 ```typescript
@@ -58,6 +64,23 @@ function colorBasedOnBg(
 
 ```typescript
 function flatten(deepArray: Array<any>): Array<any>;
+```
+
+- arrayToRecord()
+
+```typescript
+function arrayToRecord<T extends { [key: string]: any }>(
+  array: Array<T>,
+  key: string
+): Record<string, T>;
+```
+
+#### Misc
+
+- randomString()
+
+```typescript
+function randomString(): string;
 ```
 
 ## Built with
