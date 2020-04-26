@@ -1,6 +1,6 @@
 # Utilities
 
-This utilities functions aims to share and re-used useful typed utilities functions I came accross in my career.
+This utilities functions aims to share and re-used useful typed utilities functions I came accross.
 
 ## Disclaimer
 
@@ -16,29 +16,49 @@ yarn add @nicolastoulemont/utilities
 
 ## Functions
 
-#### Colors related
+#### Colors
 
-* isHex()
+- isHex()
+
 ```typescript
-function isHex(hex:string): boolean
-```
-* isRgb()
-```typescript
-function isRgb({ r: number, g: number, b: number }): boolean
-```
-* hexToRgb()
-```typescript
-function hexToRgb(hex:string): { r: number, g: number, b: number }
-```
-* rgbToHex()
-```typescript
-function rgbToHex({ r: number, g: number, b: number }): string
-```
-* colorBasedOnBg()
-```typescript
-function colorBasedOnBg(bgHex:string, lightColor: string, darkColor: string): string
+function isHex(hex: string): boolean;
 ```
 
+- isRgb()
+
+```typescript
+function isRgb({ r: number, g: number, b: number }): boolean;
+```
+
+- hexToRgb()
+
+```typescript
+function hexToRgb(hex: string): { r: number; g: number; b: number };
+```
+
+- rgbToHex()
+
+```typescript
+function rgbToHex({ r: number, g: number, b: number }): string;
+```
+
+- colorBasedOnBg()
+
+```typescript
+function colorBasedOnBg(
+  bgHex: string,
+  lightColor: string,
+  darkColor: string
+): string;
+```
+
+#### Arrays
+
+- flatten()
+
+```typescript
+function flatten(deepArray: Array<any>): Array<any>;
+```
 
 ## Built with
 
