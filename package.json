@@ -29,8 +29,20 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "utilities",
+  "name": "@nicolastoulemont/utilities",
   "author": "Nicolas Toulemont",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolastoulemont/utilities.git"
+  },
+  "homepage": "https://github.com/nicolastoulemont/utilities",
+  "keywords": [
+    "utilities"
+  ],
+  "description": "Utilities functions for personal use.",
+  "bugs": {
+    "url": "https://github.com/nicolastoulemont/utilities/issues"
+  },
   "module": "dist/utilities.esm.js",
   "devDependencies": {
     "husky": "^4.2.5",
