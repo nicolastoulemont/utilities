@@ -1,3 +1,6 @@
 export * from './colors';
 export * from './arrays';
 export * from './misc';
+export * from './stack';
+export * from './queue';
+export * from './list';

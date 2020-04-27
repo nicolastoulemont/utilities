@@ -4,7 +4,7 @@ interface RGB {
   b: number;
 }
 
-const HEX_REGEX = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+const HEX_REGEX = /#([a-f0-9]{3}|[a-f0-9]{4}(?:[a-f0-9]{2}){0,2})\b/gi;
 export function isHex(hex: string): boolean {
   return Boolean(hex.match(HEX_REGEX));
 }

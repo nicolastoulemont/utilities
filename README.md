@@ -75,6 +75,33 @@ function arrayToRecord<T extends { [key: string]: any }>(
 ): Record<string, T>;
 ```
 
+#### Other Data structures
+
+- Stack
+```typescript
+const stack = new Stack()
+stack.push(value: any)
+stack.pop()
+stack.peek()
+```
+
+- Queue
+```typescript
+const queue = new Queue()
+queue.enqueue(value:any)
+queue.dequeue(
+queue.peek()
+)
+```
+
+- LinkedList
+```typescript
+const linkedList = new LinkedList()
+linkedList.insert(data:any)
+linkedList.removeAt(index:number)
+linkedList.clearList()
+```
+
 #### Misc
 
 - randomString()
