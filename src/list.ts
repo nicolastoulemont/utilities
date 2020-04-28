@@ -68,7 +68,7 @@ export class LinkedList<T> {
     let count = 0;
 
     while (current) {
-      if (count == index) {
+      if (count === index) {
         return current.data;
       }
       count++;
@@ -102,10 +102,8 @@ export class LinkedList<T> {
   }
 
   clearList() {
-    this.size;
-
     const recurseDelete = (data: Node<T> | null | undefined) => {
-      if (data == null) {
+      if (data === null || data === undefined) {
         return;
       } else {
         recurseDelete(data.next);
