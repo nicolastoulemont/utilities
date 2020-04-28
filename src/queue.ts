@@ -1,12 +1,12 @@
-export class Queue {
-  queue: Array<any>;
+export class Queue<T> {
+  queue: Array<T>;
   length: number;
   constructor() {
     this.queue = [];
     this.length = 0;
   }
 
-  enqueue(value: any) {
+  enqueue(value: T) {
     this.queue.unshift(value);
     this.length++;
   }

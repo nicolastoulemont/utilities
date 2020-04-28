@@ -1,12 +1,12 @@
-export class Stack {
-  storage: { [key: number]: any };
+export class Stack<T> {
+  storage: { [key: number]: T };
   length: number;
   constructor() {
     this.storage = {};
     this.length = 0;
   }
 
-  push(value: any) {
+  push(value: T) {
     this.storage[this.length] = value;
     this.length++;
   }

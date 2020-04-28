@@ -80,19 +80,19 @@ function arrayToRecord<T extends { [key: string]: any }>(
 - Stack
 
 ```typescript
-const stack = new Stack()
-stack.push(value: any)
-stack.pop()
-stack.peek()
+const stack = new Stack<T>()
+stack.push(value: T)
+stack.pop(): T
+stack.peek(): T
 ```
 
 - Queue
 
 ```typescript
-const queue = new Queue()
-queue.enqueue(value: any)
+const queue = new Queue<T>()
+queue.enqueue(value: T)
 queue.dequeue()
-queue.peek()
+queue.peek(): T
 ```
 
 - LinkedList
