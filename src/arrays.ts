@@ -1,8 +1,8 @@
-const recurse = (acc: Array<any>, item: any): Array<any> =>
+const recurse = <T>(acc: Array<T>, item: T): Array<T> =>
   Array.isArray(item) ? item.reduce(recurse, acc) : [...acc, item];
 
-export function flatten(array: Array<any>): Array<any> {
-  return array.reduce(recurse, []);
+export function flatten<T>(array: Array<T>): Array<T> {
+  return array.reduce((acc: Array<T>, item: T) => recurse(acc, item), []);
 }
 
 export function arrayToRecord<T extends { [key: string]: any }>(

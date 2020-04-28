@@ -2,9 +2,9 @@ import { flatten, arrayToRecord } from '../src';
 
 describe('Testing array utils', () => {
   it('Flatten', () => {
-    const deepArr = ['string_one', ['string_two', 'string_three']];
+    const deepArr = ['string_one', ['string_two', [1]]];
     const flat = flatten(deepArr);
-    expect(flat).toStrictEqual(['string_one', 'string_two', 'string_three']);
+    expect(flat).toStrictEqual(['string_one', 'string_two', 1]);
   });
 
   it('Array to record', () => {
