@@ -89,9 +89,8 @@ stack.peek()
 ```typescript
 const queue = new Queue()
 queue.enqueue(value:any)
-queue.dequeue(
+queue.dequeue()
 queue.peek()
-)
 ```
 
 - LinkedList
