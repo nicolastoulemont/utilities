@@ -63,7 +63,7 @@ function colorBasedOnBg(
 - flatten()
 
 ```typescript
-function flatten(deepArray: Array<T>): Array<T>;
+function flatten<T>(deepArray: Array<T>): Array<T>;
 ```
 
 - arrayToRecord()
