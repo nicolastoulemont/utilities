@@ -109,6 +109,15 @@ list.getListAsArray(): Array<T>
 list.printList()
 ```
 
+- HashTable
+
+```typescript
+const hashTable = new HashTable<T>()
+hashTable.insert(key:string, value: T)
+hashTable.get(key:string) T | null
+hashTable.remove(key:string)
+```
+
 #### Misc
 
 - randomString()

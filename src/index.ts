@@ -4,3 +4,4 @@ export * from './misc';
 export * from './stack';
 export * from './queue';
 export * from './list';
+export * from './hashTable';
