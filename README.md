@@ -1,6 +1,6 @@
 # Utilities
 
-This utilities functions aims to share and re-used useful typed utilities functions I came accross.
+This utilities functions aims to share and re-use useful typed utilities functions I came accross.
 
 ## Disclaimer
 
@@ -112,7 +112,7 @@ list.printList()
 - HashTable
 
 ```typescript
-const hashTable = new HashTable<T>()
+const hashTable = new HashTable<T>(size:number)
 hashTable.insert(key:string, value: T)
 hashTable.get(key:string) T | null
 hashTable.remove(key:string)
