@@ -5,3 +5,4 @@ export * from './stack';
 export * from './queue';
 export * from './list';
 export * from './hashTable';
+export * from './binaryTree';
