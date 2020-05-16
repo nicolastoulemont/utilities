@@ -84,6 +84,10 @@ const stack = new Stack<T>()
 stack.push(value: T)
 stack.pop(): T
 stack.peek(): T
+stack.print(): void
+stack.isEmpty(): boolean
+stack.reverse(stack: Stack<T>): void
+stack.sort(stack: Stack<T>): void
 ```
 
 - Queue
