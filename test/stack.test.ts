@@ -14,6 +14,14 @@ describe('Testing Stack', () => {
     stack.push(item);
     expect(stack.pop()).toStrictEqual(item);
   });
+  it('Stack clear', () => {
+    const stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.clear();
+    expect(stack.peek()).toBe(undefined);
+  });
   it('Stack isEmpty', () => {
     const stack = new Stack();
     const isEmpty = stack.isEmpty();

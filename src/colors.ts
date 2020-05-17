@@ -50,5 +50,8 @@ export function colorBasedOnBg(
   }
 }
 
-export const randomHex = () =>
-  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+export function randomHex(): string {
+  const hex = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  if (isHex(hex)) return hex;
+  return randomHex();
+}

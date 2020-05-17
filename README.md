@@ -81,9 +81,10 @@ function arrayToRecord<T extends { [key: string]: any }>(
 
 ```typescript
 const stack = new Stack<T>()
-stack.push(value: T)
+stack.push(value: T): void
 stack.pop(): T
 stack.peek(): T
+stack.clear(): void
 stack.print(): void
 stack.isEmpty(): boolean
 stack.reverse(stack: Stack<T>): void
@@ -94,9 +95,12 @@ stack.sort(stack: Stack<T>): void
 
 ```typescript
 const queue = new Queue<T>()
-queue.enqueue(value: T)
-queue.dequeue()
-queue.peek(): T
+queue.enqueue(value: T): void
+queue.dequeue(): T | null
+queue.peek(): T | null
+queue.clear(): void
+queue.print(): void
+queue.reverse(queue: Queue<T>): Queue<T>
 ```
 
 - LinkedList
@@ -120,6 +124,18 @@ const hashTable = new HashTable<T>(size:number)
 hashTable.insert(key:string, value: T)
 hashTable.get(key:string) T | null
 hashTable.remove(key:string)
+```
+
+- Binary Search Tree
+
+```typescript
+const bst = new BST<T>()
+bst.add(value: T): void
+bst.getMin(): T | null
+bst.getMax(): T | null
+bst.find(value: T): Node<T> | null
+bst.contains(): boolean
+bst.remove(value: T): Node<T> | "Tree is empty" | null
 ```
 
 #### Misc

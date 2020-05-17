@@ -5,8 +5,7 @@ describe('Testing Queue', () => {
     const queue = new Queue();
     const item = 'item';
     queue.enqueue(item);
-    const lastItem = queue.peek();
-    expect(lastItem).toStrictEqual(item);
+    expect(queue.peek()).toStrictEqual(item);
   });
   it('Queue dequeue', () => {
     const queue = new Queue();
@@ -14,8 +13,31 @@ describe('Testing Queue', () => {
     const secondItem = 'secondItem';
     queue.enqueue(firstItem);
     queue.enqueue(secondItem);
-    queue.dequeue();
-    const lastItem = queue.peek();
-    expect(lastItem).toStrictEqual(secondItem);
+    expect(queue.dequeue()).toStrictEqual(firstItem);
+    expect(queue.peek()).toStrictEqual(secondItem);
+  });
+  it('Queue is Empty', () => {
+    const queue = new Queue();
+    expect(queue.isEmpty()).toBe(true);
+    queue.enqueue('item');
+    expect(queue.isEmpty()).toBe(false);
+  });
+  it('Clear Queue', () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.clear();
+    expect(queue.peek()).toBe(null);
+  });
+  it('Reverse Queue', () => {
+    const queue = new Queue();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.enqueue(4);
+    expect(queue.peek()).toBe(1);
+    queue.reverse(queue);
+    expect(queue.peek()).toBe(4);
   });
 });

@@ -25,6 +25,14 @@ export class Stack<T> {
     return this.storage[lastIndex];
   }
 
+  clear() {
+    if (this.storage === {}) return;
+    for (const key in this.storage) {
+      delete this.storage[key];
+      this.length--;
+    }
+  }
+
   isEmpty() {
     return this.length === 0;
   }
