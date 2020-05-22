@@ -91,7 +91,7 @@ stack.reverse(stack: Stack<T>): void
 stack.sort(stack: Stack<T>): void
 ```
 
-- Queue
+- Queue 
 
 ```typescript
 const queue = new Queue<T>()
@@ -101,6 +101,17 @@ queue.peek(): T | null
 queue.clear(): void
 queue.print(): void
 queue.reverse(queue: Queue<T>): Queue<T>
+```
+- PriorityQueue 
+
+```typescript
+const pq = new PriorityQueue<T>()
+pq.enqueue(value: T): void
+pq.dequeue(): T | null
+pq.peek(): T | null
+pq.clear(): void
+pq.print(): void
+pq.reverse(queue: Queue<T>): Queue<T>
 ```
 
 - LinkedList

@@ -36,7 +36,9 @@ export class Queue<T> {
     if (this.queue === []) {
       console.log('Empty Queue');
     } else {
-      this.queue.forEach((item, index) => console.log(`${index} : ${item}`));
+      this.queue.forEach((item, index) =>
+        console.log(`${index} : ${JSON.stringify(item, undefined, 2)}`)
+      );
     }
   }
 
