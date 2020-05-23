@@ -1,4 +1,4 @@
-import { flatten, arrayToRecord } from '../src';
+import { flatten, arrayToRecord, arrayToLinkedList } from '../src';
 
 describe('Testing array utils', () => {
   it('Flatten', () => {
@@ -30,5 +30,24 @@ describe('Testing array utils', () => {
       },
     };
     expect(record).toStrictEqual(expectedRecord);
+  });
+  it('Array to linked list', () => {
+    const array = [
+      {
+        name: 'name_one',
+        field: 'field_one',
+      },
+      {
+        name: 'name_two',
+        field: 'field_two',
+      },
+    ];
+    const linkedList = arrayToLinkedList(array);
+    expect(linkedList.size).toBe(2);
+    // @ts-ignore
+    expect(linkedList.getAt(1).data).toStrictEqual({
+      name: 'name_two',
+      field: 'field_two',
+    });
   });
 });

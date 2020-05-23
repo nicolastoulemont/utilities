@@ -39,37 +39,28 @@ export class LinkedList<T> {
   insertAt(data: T, index: number) {
     if (index > 0 && index > this.size) return;
 
-    if (index === 0) {
+    if (!this.head || index === 0) {
       this.insertFirst(data);
       return;
     }
 
-    const node = new Node(data);
-    let current, previous;
-    let count = 0;
-
-    current = this.head;
-    while (count < index) {
-      previous = current;
-      count++;
-      current = current?.next;
-    }
-
-    node.next = current;
-
-    if (previous?.next) {
-      previous.next = node;
+    let previous = this.getAt(index - 1);
+    if (previous) {
+      let newNode = new Node(data);
+      newNode.next = previous && previous.next;
+      previous.next = newNode;
     }
     this.size++;
+    return this.head;
   }
 
-  getAt(index: number): T | null {
+  getAt(index: number): Node<T> | null {
     let current = this.head;
     let count = 0;
 
     while (current) {
       if (count === index) {
-        return current.data;
+        return current;
       }
       count++;
       current = current.next;
