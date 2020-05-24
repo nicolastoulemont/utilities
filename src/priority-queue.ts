@@ -29,8 +29,7 @@ export class PriorityQueue<Element extends BaseElement> {
   }
 
   dequeue() {
-    const element = this.queue.pop();
-    return element;
+    return this.queue.pop();
   }
 
   peek() {
