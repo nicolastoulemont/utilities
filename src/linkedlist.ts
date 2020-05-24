@@ -45,12 +45,21 @@ export class LinkedList<T> {
     }
 
     let previous = this.getAt(index - 1);
-    if (previous) {
+    if (!previous) {
+      throw new Error(
+        `Cannot insert Node: ${JSON.stringify(
+          data,
+          undefined,
+          2
+        )} at location: ${index} outside of current LinkedList`
+      );
+    } else {
       let newNode = new Node(data);
       newNode.next = previous && previous.next;
       previous.next = newNode;
+      this.size++;
     }
-    this.size++;
+
     return this.head;
   }
 

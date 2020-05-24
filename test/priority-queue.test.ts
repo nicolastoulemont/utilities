@@ -15,7 +15,7 @@ describe('Testing PriorityQueue', () => {
   it('Queue dequeue', () => {
     const pq = new PriorityQueue<Item>();
     const firstItem = { data: 'One', priority: 1 };
-    const secondItem = { data: 'Three', priority: 10 };
+    const secondItem = { data: 'Ten', priority: 10 };
     const thirdItem = { data: 'Four', priority: 4 };
     pq.enqueue(firstItem);
     pq.enqueue(secondItem);

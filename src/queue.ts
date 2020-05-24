@@ -29,7 +29,7 @@ export class Queue<T> {
   }
 
   print() {
-    if (this.queue === []) {
+    if (this.isEmpty()) {
       console.log('Empty Queue');
     } else {
       this.queue.forEach((item, index) =>
