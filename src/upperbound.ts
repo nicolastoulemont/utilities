@@ -9,9 +9,9 @@ export function upperBound<T>(
 
   while (count > 0) {
     const step = (count / 2) | 0;
-    let interator = first + step;
-    if (comparator(array[interator], value) >= 0) {
-      first = ++interator;
+    let iterator = first + step;
+    if (comparator(array[iterator], value) >= 0) {
+      first = ++iterator;
       count -= step + 1;
     } else {
       count = step;
