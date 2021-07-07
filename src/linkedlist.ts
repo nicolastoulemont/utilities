@@ -7,6 +7,16 @@ class Node<T> {
   }
 }
 
+const outOfBoundIndexError = <T>(data: T, index: number) => {
+  throw new Error(
+    `Cannot insert Node: ${JSON.stringify(
+      data,
+      undefined,
+      2
+    )} at location: ${index}. \n Reason: ${index} is out of bound.`
+  );
+};
+
 export class LinkedList<T> {
   head: Node<T> | null | undefined;
   size: number;
@@ -37,7 +47,9 @@ export class LinkedList<T> {
   }
 
   insertAt(data: T, index: number) {
-    if (index > 0 && index > this.size) return;
+    if (index > this.size || index < 0) {
+      outOfBoundIndexError(data, index);
+    }
 
     if (!this.head || index === 0) {
       this.insertFirst(data);
@@ -46,13 +58,7 @@ export class LinkedList<T> {
 
     let previous = this.getAt(index - 1);
     if (!previous) {
-      throw new Error(
-        `Cannot insert Node: ${JSON.stringify(
-          data,
-          undefined,
-          2
-        )} at location: ${index} outside of current LinkedList`
-      );
+      outOfBoundIndexError(data, index);
     } else {
       let newNode = new Node(data);
       newNode.next = previous && previous.next;
@@ -78,7 +84,7 @@ export class LinkedList<T> {
   }
 
   removeAt(index: number) {
-    if (index > 0 && index > this.size) {
+    if (index > this.size || index < 0) {
       return;
     }
 
@@ -134,7 +140,7 @@ export class LinkedList<T> {
   printList() {
     let current = this.head;
     while (current) {
-      console.log(current.data);
+      console.log(JSON.stringify(current.data, null, 2));
       current = current.next;
     }
   }

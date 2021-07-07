@@ -8,7 +8,7 @@ function hashingFn(string: string, number: number) {
 
 export class HashTable<T> {
   size: number;
-  storage: [string, T][][];
+  storage: Array<Array<[string, T]>>;
   constructor(size: number) {
     this.size = size;
     this.storage = [];
