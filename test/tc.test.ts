@@ -1,9 +1,9 @@
-import { isError, tryFn } from '../src';
+import { isError, tc } from '../src';
 
-describe('tryFn', () => {
+describe('tc', () => {
   describe('synchronous function', () => {
     it('returns the error thrown in a block', () => {
-      const result = tryFn(() => {
+      const result = tc(() => {
         throw new Error('dummy');
       });
 
@@ -11,7 +11,7 @@ describe('tryFn', () => {
     });
 
     it('returns the value if nothing is thrown in a block', () => {
-      const result = tryFn(() => 42);
+      const result = tc(() => 42);
 
       expect(result).toStrictEqual(42);
     });
@@ -19,15 +19,13 @@ describe('tryFn', () => {
 
   describe('async functions', () => {
     it('returns the error thrown in a block', async () => {
-      const result = await tryFn(() =>
-        Promise.reject<number>(new Error('dummy'))
-      );
+      const result = await tc(() => Promise.reject<number>(new Error('dummy')));
 
       expect(result instanceof Error);
     });
 
     it('returns the value if nothing is thrown in a block', async () => {
-      const result = await tryFn(() => Promise.resolve(42));
+      const result = await tc(() => Promise.resolve(42));
 
       expect(result).toStrictEqual(42);
     });
@@ -35,13 +33,13 @@ describe('tryFn', () => {
 
   describe('promises', () => {
     it('returns the value resolved by a promise', async () => {
-      const result = await tryFn(Promise.resolve(42));
+      const result = await tc(Promise.resolve(42));
 
       expect(result).toStrictEqual(42);
     });
 
     it('returns the reason why a promise has been rejected', async () => {
-      const result = await tryFn(Promise.reject<number>(new Error('dummy')));
+      const result = await tc(Promise.reject<number>(new Error('dummy')));
 
       expect(result instanceof Error);
     });

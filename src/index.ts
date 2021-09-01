@@ -9,4 +9,4 @@ export * from './bst';
 export * from './priority-queue';
 export * from './lowerbound';
 export * from './upperbound';
-export * from './tryFn';
+export * from './tc';

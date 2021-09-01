@@ -35,18 +35,18 @@ function tryify<T, E extends Error = Error>(
 }
 
 /**
- * tryFn wraps code that throws, and returns the result OR the error thrown
+ * tc wraps code that throws, and returns the result OR the error thrown
  *
- * it imitates the concept (though it's not a monad) of scala.util.Try — but try is a reserved keyword, so it's called tryFn
+ * it imitates the concept (though it's not a monad) of scala.util.Try — but try is a reserved keyword, so it's called tc
  */
-export function tryFn<T, E extends Error = Error>(
+export function tc<T, E extends Error = Error>(
   asyncBlock: () => PromiseLike<T>
 ): PromiseLike<Try<T, E>>;
-export function tryFn<T, E extends Error = Error>(block: () => T): Try<T, E>;
-export function tryFn<T, E extends Error = Error>(
+export function tc<T, E extends Error = Error>(block: () => T): Try<T, E>;
+export function tc<T, E extends Error = Error>(
   promise: PromiseLike<T>
 ): PromiseLike<Try<T, E>>;
-export function tryFn<T, E extends Error = Error>(
+export function tc<T, E extends Error = Error>(
   input: PromiseLike<T> | (() => T | PromiseLike<T>)
 ): Try<T, E> | PromiseLike<Try<T, E>> {
   // if the input is a simple promise, a simple try-ify is enough
@@ -67,7 +67,7 @@ export function tryFn<T, E extends Error = Error>(
     return v;
   } catch (err) {
     // execution of block threw (and it's obviously sync), so return the error
-    return err;
+    return err as E;
   }
 }
 
