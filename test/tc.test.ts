@@ -5,7 +5,7 @@ describe('tc', () => {
     it('returns the error thrown in a block', () => {
       const [, error] = tc(() => {
         throw new Error('dummy');
-        return 'result';
+        return '';
       });
 
       expect(error instanceof Error);

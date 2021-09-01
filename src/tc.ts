@@ -67,7 +67,7 @@ export function tc<T, E extends Error = Error>(
     return [v, null];
   } catch (err) {
     // execution of block threw (and it's obviously sync), so return the error
-    return [null, err];
+    return [null, err as E];
   }
 }
 
