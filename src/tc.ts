@@ -18,19 +18,19 @@ function isPromiseLike(obj: unknown): obj is PromiseLike<unknown> {
 /**
  * Union type to wrap the original type T and allow Errors additionally
  */
-export type Try<T, E extends Error = Error> = T | E;
+export type Try<T, E extends Error = Error> = [T, null] | [null, E];
 
 /**
- * simple function to turn a promise of type T to type T | Error
+ * simple function to turn a promise of type T to type [T, null] | [null,Error]
  *
- * i.e.: catch the error and return it as the value
+ * i.e.: catch the error and return it as [null,err]
  */
 function tryify<T, E extends Error = Error>(
   p: PromiseLike<T>
 ): PromiseLike<Try<T, E>> {
   return p.then(
-    (x: T) => x,
-    (err: E) => err
+    (x: T) => [x, null],
+    (err: E) => [null, err]
   );
 }
 
@@ -64,10 +64,10 @@ export function tc<T, E extends Error = Error>(
     }
 
     // if block is sync, the result is in v, so just return
-    return v;
+    return [v, null];
   } catch (err) {
     // execution of block threw (and it's obviously sync), so return the error
-    return err as E;
+    return [null, err as E];
   }
 }
 
