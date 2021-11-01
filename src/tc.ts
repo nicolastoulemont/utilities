@@ -35,9 +35,7 @@ function tryify<T, E extends Error = Error>(
 }
 
 /**
- * tc wraps code that throws, and returns the result OR the error thrown
- *
- * it imitates the concept (though it's not a monad) of scala.util.Try — but try is a reserved keyword, so it's called tc
+ * tc wraps code that throws, and returns an with the result and the error thrown
  */
 export function tc<T, E extends Error = Error>(
   asyncBlock: () => PromiseLike<T>

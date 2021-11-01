@@ -11,6 +11,7 @@ describe('Testing BinaryTree utils', () => {
     const bst = new BST<number>();
     bst.add(2);
     bst.add(5);
+    expect(bst.contains(3)).toBe(false);
     bst.add(3);
     expect(bst.contains(3)).toBe(true);
   });
